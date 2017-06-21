@@ -2,7 +2,8 @@
 	"source" : "extend",
 	"embed" : false,
 	"version" : "1.0",
-	"controllers" :    
-	"EmojiController" : "controllers/EmojiController.php"},
+	"controllers" : {  
+	"EmojiController" : "controllers/EmojiController.php"
+	},
 	"main_class" : "EmojiController"
 }
