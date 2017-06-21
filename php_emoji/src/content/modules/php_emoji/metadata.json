@@ -1,0 +1,9 @@
+{
+	"source" : "extend",
+	"embed" : false,
+	"version" : "1.4.2",
+	"objects" : {
+	    	"EmojiPHP" : "emoji.php"
+	}
+	}
+}
