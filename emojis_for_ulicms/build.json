@@ -1,0 +1,8 @@
+{
+   "id" : "php_emoji",
+   "version" : "1.0",
+   "description" : "Emojis for UliCMS",
+   "categories" : ["emoji", "emojies", "emoticon", "smiley"],
+   "compatible_from" : "2017.3.8",
+   "dependencies" : ["php_emoji"]
+}

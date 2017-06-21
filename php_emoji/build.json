@@ -1,7 +1,7 @@
 {
    "id" : "php_emoji",
    "version" : "1.4.2",
-   "description" : " Process Emoji in PHP",
+   "description" : "Process Emoji in PHP",
    "categories" : ["emoji", "emojies", "emoticon", "smiley"],
    "compatible_from" : "2017.3",
    "dependencies" : []
