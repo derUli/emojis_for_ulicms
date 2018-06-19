@@ -12,7 +12,7 @@ class EmojiController extends Controller {
 		$dom = new DOMDocument();
 			// Parse the HTML. The @ is used to suppress any parsing errors
 			// that will be thrown if the $html string isn't valid XHTML.
-		@$dom->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+		@$dom->loadHTML('<?xml encoding="UTF-8">'.$html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
 		$xpath = new DOMXPath($dom);
 		$textnodes = $xpath->query('//text()');
