@@ -17,7 +17,7 @@ class EmojiController extends Controller {
 		$xpath = new DOMXPath($dom);
 		$textnodes = $xpath->query('//text()');
 		foreach($textnodes as $node) {
-			$node->textContent = emoji_unified_to_html($node->textContent);
+			$node->nodeValue = emoji_unified_to_html($node->textContent);
 		}
 
 		return $dom->saveHTML();
