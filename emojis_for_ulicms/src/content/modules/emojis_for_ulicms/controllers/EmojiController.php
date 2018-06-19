@@ -20,6 +20,6 @@ class EmojiController extends Controller {
 			$node->textContent = emoji_unified_to_html($node->textContent);
 		}
 
-		return emoji_unified_to_html ( $dom->saveHTML() );
+		return $dom->saveHTML();
 	}
 }
