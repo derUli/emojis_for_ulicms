@@ -1,6 +1,6 @@
 {
    "id" : "emojis_for_ulicms",
-   "version" : "1.1",
+   "version" : "1.2",
    "description" : "Emojis for UliCMS",
    "categories" : ["emoji", "emojies", "emoticon", "smiley"],
    "compatible_from" : "2017.3.8",

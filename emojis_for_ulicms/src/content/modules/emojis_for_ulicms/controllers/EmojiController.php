@@ -7,12 +7,12 @@ class EmojiController extends Controller {
 		$this->head ();
 	}
 	public function contentFilter($input) {
-		$html = trim($input);
+		$html = mb_convert_encoding($input, 'HTML-ENTITIES', 'UTF-8');
 		// Create a new DOM document
-		$dom = new DOMDocument();
+		$dom = new DOMDocument('1.0', 'UTF-8');
 		// Parse the HTML. The @ is used to suppress any parsing errors
 		// that will be thrown if the $html string isn't valid XHTML.
-		@$dom->loadHTML('<?xml encoding="UTF-8">' . $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+		@$dom->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
 		$checkbox = $dom->getElementById(PrivacyCheckbox::CHECKBOX_NAME);
 		if($checkbox){
@@ -20,18 +20,17 @@ class EmojiController extends Controller {
 			$newValue = '##Check##';
 			$checkbox->setAttribute("value", $newValue);
 		}
-		$html = str_replace('<?xml encoding="UTF-8">', '', $dom->saveHTML($dom->documentElement));
+		$html = $dom->saveHTML($dom->documentElement);
 		
 		$html = emoji_unified_to_html($html);
 		
 		if($checkbox){
-			$dom = new DOMDocument();
-			@$dom->loadHTML('<?xml encoding="UTF-8">'.$html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+			$dom = new DOMDocument('1.0', 'UTF-8');
+			@$dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 			$checkbox = $dom->getElementById(PrivacyCheckbox::CHECKBOX_NAME);
 			$checkbox->setAttribute("value", $oldValue);
 			$html = $dom->saveHTML($dom->documentElement);
 		}
-		$outputHtml = str_replace('<?xml encoding="UTF-8">', '', $html);
-		return $outputHtml;
+		return $html;
 	}
 }
